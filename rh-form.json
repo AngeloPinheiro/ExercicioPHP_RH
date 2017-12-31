@@ -1,0 +1,14 @@
+{
+	"nome": "Angelo Rafael Pinheiro dos Santos",
+	"data_nascimento": "07/01/2000",
+	"nacionalidade": "brasileiro",
+	"sexo": "masculino",
+	"estado_civil": "solteiro",
+	"endereco": "Rua o3 de Outubro - 960 - Boa Vista",
+	"cidade": "Rio Pardo",
+	"estado": "RS",
+	"salario_pretendido": 1500.00,
+	"instituicao": "Senac Santa Cruz",
+	"titulo": "Tecnico em Informatica",
+	"situacao": "cursando"
+}

@@ -5,10 +5,11 @@
 	*
 	*
 	**/
-	
+
 	//Constante de pontuacao base (em caso de nao match com os requisitos)
 	define("PONTOS_INDIFERENTE", 2.0);
-	//Constantes avaliativas
+
+	//Requisitos da secao "pessoal"
 	define("PONTOS_PESSOAL", 4.0);
 	define("PONTOS_ESTADO_CIVIL", 5.0);
 	define("PONTOS_LOCALIZACAO", 8.0);

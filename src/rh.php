@@ -9,9 +9,7 @@
 	<pre>
 <?php	
 	require_once 'constantes_pts.php';
-	require_once 'requisitos.php';
-	require_once 'pegar_post.php';
-	require_once 'decodificar.php';
+	require_once 'requisitos.php';	
 	require_once 'pegar_curriculo.php';
 
 
@@ -107,17 +105,149 @@
 		return $media = $s/count($pontos);
 	}
 
+
+	//==================================================================================================================
+	
+
+	
+	
+
+
+	
+
+	
+	//==================================================================================================================
+
 	//MAIN
 
-	$curriculo = pegar_curriculo();
 
-	var_dump($curriculo);
+	$pessoais = [
+			"idade"			=> [20, 30, 40],
+			"nacionalidade" => "brasileiro",
+			"sexo" 			=> "indiferente"
+		];
+
+	$curriculo = pegar_curriculo();
+	preparar_curriculo($curriculo);
+	
+	/*function avaliar ($k, $v, $r) {
+			
+			if($r ){
+				echo "<p>deu match! <br>  k $k  =  r $r !</p>";
+				return true;
+			}
+		
+
+		//var_dump($);
+	}
+
+	function secao($possib, $requisito){
+		global $curriculo;
+
+		if(is_array($possib)){			
+		
+			foreach ($curriculo as $req => $resposta) {
+				if($req === $requisito){
+					
+					array_walk($possib, 'avaliar', $resposta);
+				}
+			}
+
+		}
+	}
+
+	array_walk($requisitos, "secao");
+
+	
+
+
+
+	//var_dump($curriculo);
 
 	/*setar_pontos("pessoais");
 	setar_pontos("conhecimentos");
 	setar_pontos("salario_pretendido", "nao");*/
 
-	//print_r($pontos);
+	//print_r($sec);*/
+
+
+/*foreach ($requisitos as $key) {
+	$novo = array_filter($requisitos, function ($key, $value){
+			if(is_array($key)){
+				foreach($key as $requisito => $op){
+					if($curriculo[$requisito]){
+						if($curriculo[$requisito] == $op){
+							echo "MATCH requisito '$curriculo[$requisito]' igual a resposta $op <br>";
+							return true;
+						}
+					}
+				}
+			} else {
+				//COMPARAR DIRETO
+				var_dump($key);
+
+			}
+		}, ARRAY_FILTER_USE_BOTH);
+
+}*/
+
+
+
+foreach ($requisitos as $requisito => $possibilidades) { //percorre $requisitos
+	
+	//foreach($curriculo as $campo => $resposta){ //percorre $curriculo
+
+		if(is_array($possibilidades)) { // se for "secao" => requisito1... => possibilidadeS
+
+			foreach ($possibilidades as $possibilidade => $p) { //percorre $possibilidades
+
+				if(is_array($p) && in_array($possibilidade, $curriculo)){ // se for "secao" => requisito1 => possibilidadeS => [possibilidade1, possibilidade2 ...] 
+					
+					foreach ($p as $k => $v) { //para cada possibilidade as indice($k) => valor($v)
+						foreach($curriculo as $campo => $resposta){
+							if($resposta == $v){
+								echo "Resposta: $resposta igual possibilidade $v no requisito $campo $<br>"; 
+							} /*else {
+								echo "<strong><br>Resposta: $resposta eh totalmente inverso a $v no requisito $campo</strong><br>"; 
+							}	*/
+						}
+					}
+
+				} else { //se for secao => requisito => possibilidade
+
+					
+						foreach($curriculo as $campo => $resposta){
+							if($resposta == $p){
+								echo "Resposta: $resposta igual possibilidade $p no requisito $possibilidade $<br>"; 
+							} /*else {
+								echo "<strong><br>Resposta: $resposta eh totalmente inverso a $p no requisito $possibilidade</strong><br>"; 
+							}	*/
+						}
+					
+				} 
+ 				//unset($requisitos["$possibilidade"][$p]);
+				//break;
+			}
+
+		} else { // se for "secao/requisito" => "possibilidade" (key => value)
+			
+						foreach($curriculo as $campo => $resposta){
+							if($resposta == $possibilidades){
+								echo "Resposta: $resposta igual possibilidade $possibilidades no requisito $requisito $<br>"; 
+							} /*else {
+								echo "<strong><br>Resposta: $resposta eh totalmente inverso a $possibilidades no requisito $requisito</strong><br>"; 
+							}	*/
+						}
+				
+		}
+	//break;
+	//}
+	
+}
+	
+
+
+
 
 	
 

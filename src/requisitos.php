@@ -3,32 +3,23 @@
 	$requisitos = [
 
 		"pessoais" => [
-			"idade" => 20,
+			"idade"			=> [20, 30, 40],
 			"nacionalidade" => "brasileiro",
-			"sexo" => "masculino"
+			"sexo" 			=> "masculino"
 		],
 
-		"estado civil" => "solteiro",
+		"estado_civil" => "indiferente",
 
 		"localizacao" => [
-			"cidade" => "Santa Cruz do Sul",
-			"estado" => "RS"
+			"cidade"  => "santa cruz do sul",
+			"estado"  => "rs"
 		],
 
-		"salario_pretendido" => [
-			"min" => 1000,
-			"max" => 2400
-		],
+		"salario_pretendido" => 2000.00,
 
 		"formacao" => [
-			"instituicao" => null,
-			"titulo" => "Tecnico em Informatica",
-			"situacao" => "concluido"
-		],
-
-		"conhecimentos" => [
-			"PHP",
-			"MySQL",
-			"Linux"
+			"instituicao" => "indiferente",
+			"titulo"	  => "tecnico em informatica",
+			"situacao"	  => "concluido"
 		]
 	];

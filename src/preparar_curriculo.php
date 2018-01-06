@@ -7,6 +7,9 @@
    
    /**
    *
+   *  Recebe uma referencia ao curriculo
+   *  Formata, filtra e padroniza os dados do form de curriculo
+   *  
    **/
    function preparar_curriculo(&$form){
 		
